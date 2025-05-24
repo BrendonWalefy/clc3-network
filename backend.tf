@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
-    bucket = "clemente-machado-clc13-network-terraform-state"
-    key    = "network/clc13-clemente.state"
+    bucket = "brendon-walefy-clc13-network-terraform-state"
+    key    = "network/clc13-brendon.state"
     region = "us-east-1"
   }
 }
