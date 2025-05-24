@@ -161,3 +161,19 @@ resource "aws_route_table_association" "public_assoc_1b" {
   subnet_id      = aws_subnet.public_1b.id
   route_table_id = aws_route_table.public_rt_1b.id
 }
+
+# Configurando vpc flow log
+
+resource "aws_flow_log" "aula_mba_clc13" {
+  log_destination      = "arn:aws:s3:::brendon-walefy-clc13-network-terraform-state"
+  log_destination_type = "s3"
+  traffic_type         = "ALL"
+  vpc_id               = aws_vpc.main.id
+}
+
+resource "aws_default_security_group" "default" {
+  vpc_id = aws_vpc.main.id
+  tags = {
+    Name = "brendon-walefy-clc13-sg"
+  }
+}
